@@ -92,6 +92,7 @@ if(require.main == module) {
     	outJson;
     	
     if(program.url) {
+    	console.log("URL and checks");
 		rest.get(program.url).on('complete', function(result) {
 			 checkJson = checkURL(program.url, result, program.checks);
 			 outJson = JSON.stringify(checkJson, null, 4);
@@ -99,6 +100,7 @@ if(require.main == module) {
 		});
         
 	} else {
+		console.log("File and Checks")
 		checkJson = checkHtmlFile(program.file, program.checks);
 		outJson = JSON.stringify(checkJson, null, 4);
 		console.log(outJson);	    
